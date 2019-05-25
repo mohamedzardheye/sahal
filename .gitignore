@@ -45,9 +45,6 @@ Thumbs.db
 
 
 #for me 
-
- .editorconfig
- .vscode/
-  README.md
-package-lock.json
- tslint.json
+.editorconfig
+.vscode/
+README.md
