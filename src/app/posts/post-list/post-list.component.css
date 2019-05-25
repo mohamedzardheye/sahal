@@ -1,0 +1,28 @@
+.example-card {
+    max-width: 25%;
+   float: left;
+   margin-left :2%;
+   display:flexbox;
+   margin-top:1%;
+}
+
+.mat-card-image{
+ height: 10rem;
+ 
+}
+
+mat-paginator{
+    width:100%; 
+    float:left;
+    margin-top:1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .example-card {
+        max-width: 40%;
+       float: left;
+       margin-left :1%;
+       display:flexbox;
+       margin-top:1%;
+    }
+  }
