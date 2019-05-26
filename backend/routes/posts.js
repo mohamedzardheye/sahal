@@ -2,7 +2,7 @@ const express = require('express');
 const Post = require('../models/post');
 const router = express.Router();
 const multer = require('multer');
-
+const User = require('../models/user');
 const moment = require('moment');
 const DateFormatted = moment().format('YYYY-DD-MM');
 
@@ -103,6 +103,8 @@ router.get( '', checkAuth,(req,res, next) =>{
   const pageSize = +req.query.pagesize;
   const currentPage = +req.query.page;
   const postQuery =  Post.find({creator:req.userData.userId});
+ //  = User.findOne({_id:req.userData.userId});
+   const postAuthor = User.findOne({email:req.userData.email});
   let fetchedPosts;
   if(pageSize && currentPage){
     postQuery
@@ -112,8 +114,10 @@ router.get( '', checkAuth,(req,res, next) =>{
   postQuery
   .then(documents => {
     fetchedPosts = documents;
+    console.log(postAuthor);
     return Post.countDocuments();
   })
+
   
   .then(count =>{
    
