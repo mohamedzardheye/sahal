@@ -99,10 +99,10 @@ multer({storage:storage}).single('image'),
    
 // });
 
-router.get( '', checkAuth,(req,res, next) =>{
+router.get( '',(req,res, next) =>{
   const pageSize = +req.query.pagesize;
   const currentPage = +req.query.page;
-  const postQuery =  Post.find({creator:req.userData.userId});
+  const postQuery =  Post.find();
  //  = User.findOne({_id:req.userData.userId});
    const postAuthor = User.findOne({email:req.userData.email});
   let fetchedPosts;
