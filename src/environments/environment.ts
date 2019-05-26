@@ -4,7 +4,12 @@
 
 export const environment = {
   production: false,
-  apiUrl :'https://vast-mountain-51913.herokuapp.com/api'
+
+ 
+   
+
+  apiUrl: 'https:/localhost/3000/api/'
+   
   //apiUrl : 'https:/localhost/3000/api/'
 };
 
