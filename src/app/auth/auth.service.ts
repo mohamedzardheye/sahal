@@ -37,7 +37,7 @@ export class AuthService{
     createUser(email:string, password:string){
         const authData : AuthData = {email:email,password:password};
         this.http.post (
-            BACKEND_URL + '/signup', authData
+            BACKEND_URL + 'signup', authData
         ).subscribe(response =>{
             console.log(response);
         }); 
@@ -49,7 +49,7 @@ export class AuthService{
     login(email:string, password:string){
         const authData : AuthData = {email:email, password:password};
         this.http.post<{token:string, expiresIn:number}>
-        (BACKEND_URL+ '/login', authData)
+        (BACKEND_URL+ 'login', authData)
         .subscribe(response =>{
           
 
