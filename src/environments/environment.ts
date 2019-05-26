@@ -11,7 +11,7 @@ export const environment = {
  
   //apiUrl :'https://vast-mountain-51913.herokuapp.com/api/'
    
-  apiUrl : 'http://localhost:3000/api/'
+  apiUrl : 'http://localhost:3000/api'
 };
 
 /*
