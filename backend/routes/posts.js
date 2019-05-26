@@ -104,7 +104,7 @@ router.get( '',(req,res, next) =>{
   const currentPage = +req.query.page;
   const postQuery =  Post.find();
  //  = User.findOne({_id:req.userData.userId});
-   const postAuthor = User.findOne({email:req.userData.email});
+  // const postAuthor = User.findOne({email:req.userData.email});
   let fetchedPosts;
   if(pageSize && currentPage){
     postQuery
@@ -114,7 +114,7 @@ router.get( '',(req,res, next) =>{
   postQuery
   .then(documents => {
     fetchedPosts = documents;
-    console.log(postAuthor);
+    
     return Post.countDocuments();
   })
 
