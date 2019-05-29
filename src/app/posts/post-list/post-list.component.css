@@ -1,10 +1,10 @@
-.example-card {
+/* .example-card {
     max-width: 25%;
    float: left;
    margin-left :2%;
    display:flexbox;
    margin-top:1%;
-}
+} */
 
 .mat-card-image{
  height: 10rem;
@@ -17,7 +17,7 @@ mat-paginator{
     margin-top:1rem;
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
     .example-card {
         max-width: 40%;
        float: left;
@@ -25,4 +25,4 @@ mat-paginator{
        display:flexbox;
        margin-top:1%;
     }
-  }
+  } */

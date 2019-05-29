@@ -140,12 +140,11 @@ export class PostsService {
                 this.router.navigate(['/']);
             });
     }
-
   
 
     deletePost(postId: string) {
         return this.http
-          .delete("BACKEND_URL" + postId);
+          .delete(BACKEND_URL + postId);
       }
 
 } //end of all
