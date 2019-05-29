@@ -18,7 +18,8 @@ import {MatInputModule,
         MatProgressSpinnerModule,
         MatProgressBarModule,
         MatPaginatorModule,  
-        MatDialogModule
+        MatDialogModule,
+        MatGridListModule
       } from '@angular/material';
 import { PostsService } from './posts/posts.service';
 import { LoginComponent } from './auth/login/login.component';
@@ -53,6 +54,8 @@ import { ErrorComponent } from './error/error.component';
     MatPaginatorModule  ,
     MatDialogModule,
     BrowserAnimationsModule,
+    MatGridListModule,
+    
     
 
 HttpClientModule

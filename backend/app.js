@@ -36,12 +36,12 @@ app.use((req,res, next) => {
 
 
 //Serve only the static files form the dist directory
-app.use(express.static(__dirname + '../../dist'));
+app.use(express.static(__dirname + '../../dist/project1'));
 
 app.get('/*', function(req,res) {
     
- //res.sendFile(path.join(__dirname+'../../dist/index.html'));
- res.sendFile(__dirname+'../../dist/index.html');
+ res.sendFile(path.join(__dirname+'../../dist/project1/index.html'));
+ //res.sendFile(__dirname + '../dist/index.html');
 });
 
 app.use('/api/posts' , postsRoutes);
