@@ -8,12 +8,13 @@ const User = require('../models/user');
 
 
 
-router.post('/signup',(req,res,next) =>{
+router.post('/signup',sendSms,(req,res,next) =>{
     bcrypt.hash(req.body.password,10,)
     .then(hash =>{
         const user = new User({
             email:req.body.email,
             password:hash
+            
         });
         user.save()
         .then(result =>{
@@ -24,7 +25,7 @@ router.post('/signup',(req,res,next) =>{
         })
         .catch(err =>{
             res.status(500).json({
-              message:'Invalid email hore u jirey ayad ku clise'
+              message:'Invalid email ! Email kani Hore Ayu u jirey'
             });
         });
     });
@@ -51,7 +52,7 @@ router.post('/login', (req,res,next) =>{
       
             }
             
-          
+       
             const token = jwt.sign({email:fetchedUser.email,userId:fetchedUser._id},
                 'screte_this_should_be_longer',
                 {expiresIn: '1h'}
@@ -61,11 +62,26 @@ router.post('/login', (req,res,next) =>{
                     email : fetchedUser.email,
                     expiresIn : 3600
                 });
+                const state = true;
+                
+                User.updateOne({email:fetchedUser.email},state).then(result =>{
+                    console.log(result);
+                    if (result.nModified >0 ){
+                      
+                      res.status(200).json({message:"Update Successful"});
+                    }
+                   else{
+                     res.status(401).json({message:'Not Authorized'});
+                   }
+                  
+                  });
+               
+// update eng here                
                 
     })
     .catch (err =>{
         return res.status(401).json ({
-            message:'Auth Email Failed'
+            message:'Auth  Failed Email And Password Are Wrong'
         });
     });
 })

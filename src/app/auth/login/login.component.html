@@ -29,13 +29,7 @@
                      placeholder="Password"
                      required> 
 
-              <!-- <input type="password"
-             name="password"
-             ngModel
-               matInput 
-               placeholder="Password"
-                #passwordInput="ngModel"
-                 required>  -->
+            
 
                     <mat-error *ngIf="passwordInput.invalid">Please Enter Valid Password.</mat-error> 
                  </mat-form-field>
@@ -44,8 +38,7 @@
         <button 
          mat-raised-button
          color="accent"
-         type="submit"
-         *ngIf="!isLoading"> Login</button>
+        *ngIf="!isLoading"> Login</button>
 
         
          <!-- <mat-progress-bar *ngIf="isLoading" color="accent"></mat-progress-bar> -->

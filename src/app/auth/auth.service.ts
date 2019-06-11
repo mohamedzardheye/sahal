@@ -5,19 +5,24 @@ import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import {environment} from '../../environments/environment';
 import { map } from 'rxjs/operators';
+import { MatDialog, MatSnackBar } from '@angular/material';
+
 
 const BACKEND_URL = environment.apiUrl +'/user/';
 
 @Injectable ({providedIn:'root'})
 
 export class AuthService{
-    constructor(private http:HttpClient, private router:Router){}
+    constructor(private http:HttpClient, private router:Router , private snackBar:MatSnackBar){}
     private token: string;
     private authStatusListener = new Subject<boolean>();
     private tokenTimer : any;
     private isAuthenticated = false;
 
    private email :string;
+
+
+  
 
     getToken(){
         return this.token;
@@ -78,6 +83,20 @@ export class AuthService{
             this.isAuthenticated= true;
             this.authStatusListener.next(true);
             this.router.navigate(['/']);
+            
+            //snackbar Starts Here
+            
+               this.snackBar.open('Welcome ' + email,'',{
+              
+                   horizontalPosition:'right',
+                   verticalPosition:'top',
+                    direction:'ltr',
+                    duration:3000,
+                    panelClass :  ['snackbar-success']
+               })
+
+            //end Snack Bar
+            
            }
           
           
@@ -114,6 +133,15 @@ logout(){
     clearTimeout(this.tokenTimer);
     this.clearAuthData();
     this.router.navigate(['/']);
+
+    this.snackBar.open('Successfully Logged Out  ', '',{
+              
+        horizontalPosition:'right',
+        verticalPosition:'top',
+         direction:'ltr',
+         duration:3000,
+         panelClass :  ['snackbar-success']
+    })
 }
 
 private setAuthTimer (duration: number){

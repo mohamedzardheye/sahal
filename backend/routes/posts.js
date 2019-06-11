@@ -82,7 +82,13 @@ multer({storage:storage}).single('image'),
         
         }
     });
-  });
+  })
+   .catch (err =>{
+     res.status(500).json ({
+       
+      message:'CRAETE POST FAILDED !'
+    });
+});
  
    
 });
@@ -99,10 +105,15 @@ multer({storage:storage}).single('image'),
    
 // });
 
-router.get( '',(req,res, next) =>{
+router.get( '', checkAuth,(req,res, next) =>{
   const pageSize = +req.query.pagesize;
   const currentPage = +req.query.page;
-  const postQuery =  Post.find();
+  //const postQuery =  Post.findOne({creator:'5ce1100517ec104228a6f805'}).populate('creator');
+
+  const postQuery =  Post.find({creator:req.userData.userId})
+  .populate('creator');
+
+
  //  = User.findOne({_id:req.userData.userId});
   // const postAuthor = User.findOne({email:req.userData.email});
   let fetchedPosts;
@@ -114,7 +125,7 @@ router.get( '',(req,res, next) =>{
   postQuery
   .then(documents => {
     fetchedPosts = documents;
-    
+    //console.log(documents);
     return Post.countDocuments();
   })
 
@@ -122,11 +133,12 @@ router.get( '',(req,res, next) =>{
   .then(count =>{
    
     res.status(200).json({
+   
       message:'Posts Fetched Successfully',
       posts:fetchedPosts,
       maxPosts:count
   });
- 
+  
     });
    
 });

@@ -1,14 +1,27 @@
 <mat-toolbar color="primary">
+    <mat-icon aria-hidden="false"  aria-label="Example home icon">dashboard
+       
+    </mat-icon>
    <span>
-        <a routerLink="/"> My First Toolbar</a>
+      <a routerLink="/">HOME</a>
+
+
+      
   </span> 
   
  
 
   <span class="spacer"></span>
   <ul>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle
+        </mat-icon> 
       <li *ngIf="userIsAuthenticated">
+
+          
+          <span>
           <a mat-button routerLink="/create" routerLinkActive="mat-accent">{{email}} </a>
+         
+        </span>
         </li>
     <li *ngIf="userIsAuthenticated">
       <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Post</a>

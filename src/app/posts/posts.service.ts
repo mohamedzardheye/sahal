@@ -54,15 +54,18 @@ export class PostsService {
             BACKEND_URL+queryParams
              )
              .pipe(map((postData) =>{
+
+             
                  return {
-                     posts: postData.posts.map(post =>{
-                     return {
+                 posts: postData.posts.map(post =>{
+                    return {
                          title: post.title,
                          content: post.content,
                          id:post._id,
                          imagePath:post.imagePath,
                          createdDate:post.createdDate,
-                         creator:post.creator
+                         creator:post.creator,
+                         email:post.creator.email
                        
                      };
                  }),

@@ -19,7 +19,11 @@ import {MatInputModule,
         MatProgressBarModule,
         MatPaginatorModule,  
         MatDialogModule,
-        MatGridListModule
+        MatGridListModule,
+        MatSnackBarModule,
+        MatIconModule,
+        
+        
       } from '@angular/material';
 import { PostsService } from './posts/posts.service';
 import { LoginComponent } from './auth/login/login.component';
@@ -27,6 +31,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { ErrorInterceptor } from './error-interceptor';
 import { ErrorComponent } from './error/error.component';
+import { CardsFreeModule, ButtonsModule, WavesModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,9 @@ import { ErrorComponent } from './error/error.component';
     PostListComponent,
     LoginComponent,
     SignupComponent,
-    ErrorComponent
+    ErrorComponent,
+    
+
   ],
   imports: [
     BrowserModule,
@@ -55,6 +62,16 @@ import { ErrorComponent } from './error/error.component';
     MatDialogModule,
     BrowserAnimationsModule,
     MatGridListModule,
+    MatSnackBarModule,
+    MatIconModule,
+    
+
+
+
+    // Here Starts MDB 
+    CardsFreeModule,
+    ButtonsModule,
+     WavesModule,
     
     
 

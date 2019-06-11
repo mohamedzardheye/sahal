@@ -2,13 +2,15 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpErrorResponse } from '@a
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
+
 import { ErrorComponent } from './error/error.component';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor{
 
-constructor(private dialog:MatDialog){}
+//constructor(private dialog:MatDialog){}
+constructor(private snackbar:MatSnackBar){}
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         
@@ -19,7 +21,27 @@ constructor(private dialog:MatDialog){}
                if(error.error.message){
                    errorMessage = error.error.message;
                }
-                this.dialog.open(ErrorComponent, {data:{message:errorMessage}});
+               // this.snackbar.open('',ErrorComponent, {data:{message:errorMessage}});
+
+            //    this.snackbar.open(errorMessage,'UNDO',{
+              
+            //        data:{message:errorMessage},
+            //        horizontalPosition:'right',
+            //        verticalPosition:'top',
+            //         direction:'ltr',
+            //         duration:3000,
+            //         panelClass :  ['background-red']
+            //    })
+
+               this.snackbar.openFromComponent(ErrorComponent,{
+                data:{message:errorMessage},
+                       horizontalPosition:'end',
+                       verticalPosition:'top',
+                        direction:'ltr',
+                        duration:3000,
+                        panelClass: ['snackbar-error'],
+
+               });
                 //alert(error.error.message);
                 return throwError(error);
             })

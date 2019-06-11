@@ -1,8 +1,7 @@
 
 <mat-card>
-    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
 
-        <form  (submit)= "onSignup(loginForm)" #loginForm="ngForm"  *ngIf="!isLoading">
+        <form  (submit)= "onSignup(loginForm)" #loginForm="ngForm"  >
            
             <mat-form-field>
                     <input 
@@ -43,10 +42,13 @@
         <button 
          mat-raised-button
          color="accent"
-         type="submit"> Signup</button>
+         *ngIf="!isLoading"
+         > Signup</button>
 
         
-         <mat-progress-bar></mat-progress-bar>
+         <mat-progress-bar mode="indeterminate" *ngIf="isLoading">
+        
+         </mat-progress-bar>
     </form>
     </mat-card>
     
