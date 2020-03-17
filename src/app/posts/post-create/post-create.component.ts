@@ -16,7 +16,7 @@ export class PostCreateComponent implements OnInit {
     // enteredTitle ='';
     // newPost = '';
     form: FormGroup;
-        imagePreview: string;
+   imagePreview: string;
     private mode ='create';
     private postId: string;
      post : Post;
@@ -91,6 +91,9 @@ export class PostCreateComponent implements OnInit {
     reader.readAsDataURL(file);
  
   }
+
+
+  
 onSavePost(){
   if(this.form.invalid){
     return;

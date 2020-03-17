@@ -22,6 +22,8 @@ import {MatInputModule,
         MatGridListModule,
         MatSnackBarModule,
         MatIconModule,
+        MatTableModule,
+      
         
         
       } from '@angular/material';
@@ -32,6 +34,7 @@ import { AuthInterceptor } from './auth/auth-interceptor';
 import { ErrorInterceptor } from './error-interceptor';
 import { ErrorComponent } from './error/error.component';
 import { CardsFreeModule, ButtonsModule, WavesModule } from 'angular-bootstrap-md';
+import { HotelCityAdd } from './hotel/hotel-city-add.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ import { CardsFreeModule, ButtonsModule, WavesModule } from 'angular-bootstrap-m
     LoginComponent,
     SignupComponent,
     ErrorComponent,
+    HotelCityAdd
     
 
   ],
@@ -64,8 +68,7 @@ import { CardsFreeModule, ButtonsModule, WavesModule } from 'angular-bootstrap-m
     MatGridListModule,
     MatSnackBarModule,
     MatIconModule,
-    
-
+    MatTableModule,
 
 
     // Here Starts MDB 

@@ -35,96 +35,13 @@
 
 
 </mat-accordion> -->
-<section class="s-pageheader">
-       
-<div class="pageheader-content row">
-    <div class="col-full">
-
-        <div class="featured">
-
-            <div class="featured__column featured__column--big">
-                <div class="entry" style="background-image:url('http://localhost:3000/images/featured-guitarman.jpg');">
-                    
-                    <div class="entry__content">
-                        <span class="entry__category"><a href="#0">Music</a></span>
-
-                        <h1><a href="#0" title="">What Your Music Preference Says About You and Your Personality.</a></h1>
-
-                        <div class="entry__info">
-                            <a href="#0" class="entry__profile-pic">
-                                <img class="avatar" src="" alt="">
-                            </a>
-
-                            <ul class="entry__meta">
-                                <li><a href="#0">John Doe</a></li>
-                                <li>December 29, 2017</li>
-                            </ul>
-                        </div>
-                    </div> <!-- end entry__content -->
-                    
-                </div> <!-- end entry -->
-            </div> <!-- end featured__big -->
-
-            <div class="featured__column featured__column--small">
-
-                <div class="entry" style="background-image:url('http://localhost:3000/images/just-a-standard-format-post.-1559905473286.jpg');">
-                    
-                    <div class="entry__content">
-                        <span class="entry__category"><a href="#0">Management</a></span>
-
-                        <h1><a href="#0" title="">The Pomodoro Technique Really Works.</a></h1>
-
-                        <div class="entry__info">
-                            <a href="#0" class="entry__profile-pic">
-                                <img class="avatar" src="" alt="">
-                            </a>
-
-                            <ul class="entry__meta">
-                                <li><a href="#0">John Doe</a></li>
-                                <li>December 27, 2017</li>
-                            </ul>
-                        </div>
-                    </div> <!-- end entry__content -->
-                  
-                </div> <!-- end entry -->
-
-                <div class="entry" style="background-image:url('http://localhost:3000/images/just-a-standard-format-post.-1559905473286.jpg');">
-
-                    <div class="entry__content">
-                        <span class="entry__category"><a href="#0">LifeStyle</a></span>
-
-                        <h1><a href="#0" title="">Throwback To The Good Old Days.</a></h1>
-
-                        <div class="entry__info">
-                            <a href="#0" class="entry__profile-pic">
-                                <img class="avatar" src="" alt="">
-                            </a>
-
-                            <ul class="entry__meta">
-                                <li><a href="#0">John Doe</a></li>
-                                <li>December 21, 2017</li>
-                            </ul>
-                        </div>
-                    </div> <!-- end entry__content -->
-
-                </div> <!-- end entry -->
-
-            </div> <!-- end featured__small -->
-        </div> <!-- end featured -->
-
-    </div> <!-- end col-full -->
-</div> <!-- end pageheader-content row -->
-      
-</section>
-
-
+<br>
 
 <!-- Start Post Area -->
-<section class="fashion-area section-gap" id="fashion" style="margin-top:-10rem;">
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-lg-3 col-md-6 single-fashion" *ngFor="let post of posts">
+         <div class="col-lg-3 col-md-6 single-fashion" *ngFor="let post of posts">
                 <img class="img-fluid" [src]="post.imagePath" alt="" style="width:100%; height:20rem ;">
                 <p class="date">{{post.createdDate}}</p>
                 <h4><a href="#">{{post.title}}</a></h4>
@@ -139,12 +56,8 @@
                 <button mat-button color="primary" [routerLink]="['/edit',post.id]"> EDIT </button>
             </div>
 
+<!-- HALKAN QAYB CUSUB AYAN KA BILAABAY -->
 
-
-            <a href="#" class="primary-btn load-more pbtn-2 text-uppercase mx-auto mt-60">Load More </a>
-        </div>
-    </div>
-</section>
 <!-- End fashion Area -->
 
 

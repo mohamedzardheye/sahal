@@ -6,9 +6,12 @@ const path = require('path');
 
 const postsRoutes = require('./routes/posts');
 const userRouters = require('./routes/user');
-
+const hotelRoutes = require('./routes/hotel');
+const graphRoutes = require('./routes/fbgraph');
 const app = express ();
-mongoose.connect("mongodb://mohamed.zardheye:2170062mmmM@ds133875.mlab.com:33875/checks")
+mongoose.connect("mongodb://mohamed.zardheye:2170062mmmM@ds133875.mlab.com:33875/checks", {
+    useNewUrlParser: true
+})
 .then(() =>{
     console.log('connection success');
 })
@@ -43,9 +46,11 @@ app.use((req,res, next) => {
 //  res.sendFile(path.join(__dirname+'../../dist/index.html'));
 //  //res.sendFile(__dirname + '../dist/index.html');
 // });
-
+app.use('/api/hotel' ,hotelRoutes );
 app.use('/api/posts' , postsRoutes);
 app.use('/api/user' , userRouters);
+app.use('/api/graph' ,graphRoutes);
+
 
 
 

@@ -1,79 +1,54 @@
+<div class="blog-login">
+  <div class="blog-login-in">
+  
 
-<mat-card>
-    <!--  -->
+    <form  (submit)= "onLogin(loginForm)" #loginForm="ngForm"  >
 
-        <form  (submit)= "onLogin(loginForm)" #loginForm="ngForm"  >
-           
-            <mat-form-field>
+          <img src="images/logo.png" alt="" />
+          <div class="row">
+              
+                <mat-form-field>
                     <input 
                     name="email"
                     ngModel
                     #emailInput="ngModel"
                     matInput 
                     type="email" 
-                    
-                     placeholder="Email "
-                     required email
-                  >
+                    placeholder="Email "
+                    required email>
                      <mat-error *ngIf="emailInput.invalid">Please enter a E-mail.</mat-error>
                 </mat-form-field>
-               
-                <mat-form-field>
-                 <input type="password"
-                     name="password"
-                     ngModel
-                     matInput
-                     
-                     #passwordInput="ngModel" 
-                    
-                     placeholder="Password"
-                     required> 
 
-            
-
-                    <mat-error *ngIf="passwordInput.invalid">Please Enter Valid Password.</mat-error> 
-                 </mat-form-field>
+                
+              
+          </div>
+          <div class="row">
+                             
+                    <mat-form-field>
+                            <input type="password"
+                                name="password"
+                                ngModel
+                                matInput
+                                #passwordInput="ngModel" 
+                                placeholder="Password"
+                                required> 
+                                <mat-error *ngIf="passwordInput.invalid">Please Enter Valid Password.</mat-error> 
+                            </mat-form-field>
                  
-    
-        <button 
-         mat-raised-button
-         color="accent"
-        *ngIf="!isLoading"> Login</button>
-
-        
-         <!-- <mat-progress-bar *ngIf="isLoading" color="accent"></mat-progress-bar> -->
-
-         
-    </form>
-    </mat-card>
-    <mat-progress-bar mode="indeterminate" color="accent" *ngIf="isLoading"></mat-progress-bar>
-    
-     
-<!-- 
-     <mat-card>
-        <mat-spinner *ngIf="isLoading"></mat-spinner>
-        <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
-          <mat-form-field>
-            <input matInput 
-            name="email"
-             ngModel 
-             type="email"
-              placeholder="E-Mail" 
-              #emailInput="ngModel"
-               required email>
-            <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <input type="password"
-             name="password"
-             ngModel
-               matInput 
-               placeholder="Password"
-                #passwordInput="ngModel"
-                 required>
-            <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
-          </mat-form-field>
-          <button mat-raised-button color="accent" type="submit">Login</button>
-        </form>
-      </mat-card>
-       -->
+            
+             
+          </div>
+          <div class="row">
+              <div class="input-field col s12">
+                  <button 
+                  mat-raised-button
+                  color="accent"
+                  class="waves-effect waves-light btn-large btn-log-in"
+                 *ngIf="!isLoading"> Login</button>
+                 <mat-spinner *ngIf="isLoading"></mat-spinner>
+              </div>
+          </div>
+          <a href="forgot.html" class="for-pass">Forgot Password?</a>
+      </form>
+  </div>
+</div>

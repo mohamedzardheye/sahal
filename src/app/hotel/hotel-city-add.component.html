@@ -1,0 +1,109 @@
+<div class="sb2-2">
+        <div class="sb2-2-2">
+            <ul>
+                <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                </li>
+                <li class="active-bre"><a href="#"> Add New City </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sb2-2-add-blog sb2-2-1">
+            <h2>Add New City</h2>
+            <p>Here You Can Add New And Some Information</p>
+           
+<mat-card>
+        <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+       
+            <form [formGroup]="form" (submit)= "onSaveCity()"  >
+              <div class="row">    
+                <mat-form-field>
+                        <input 
+                        formControlName="title"
+                        matInput 
+                        type="text" 
+                        name="title"
+                        placeholder="City Name ">
+                         <mat-error *ngIf="form.get('title').invalid">Please enter a City title.</mat-error>
+                    </mat-form-field>
+                </div> 
+
+                <div class="row">          
+                    <mat-form-field>
+                         <input
+                         type="text"
+                          formControlName="desc"
+                          name="desc"
+                          matInput 
+                          placeholder="City Descripitoin "
+                          
+                          >            
+                       
+                        <mat-error *ngIf="form.get('desc').invalid">Please enter a city Descripition.</mat-error>
+                     </mat-form-field>
+                    </div>
+                     
+        <div>
+            <button mat-stroked-button type="button" (click) = "filePicker.click()"> Pick Image </button>
+            <input type="file" #filePicker (change)="onImagePicked($event)">
+             
+            <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+                <img [src]="imagePreview" alt="form.value.title">
+            </div>
+            
+            <hr>
+    
+        </div>
+            <button 
+             mat-raised-button
+             color="accent"
+             (click) = "onSaveCity()"> Save City</button>
+        
+           
+        </form>
+        </mat-card>
+        
+        
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="weight">
+              <th mat-header-cell *matHeaderCellDef> Weight </th>
+              <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="symbol">
+              <th mat-header-cell *matHeaderCellDef> Symbol </th>
+              <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          
+          
+      
+          
+
+        
+        </div>
+    </div>
+
+
+    
